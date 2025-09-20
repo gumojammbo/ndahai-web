@@ -13,7 +13,7 @@ function showVideo() {
         easterEgg.style.display = "block";
         secretInput.value = "";
     } else {
-        alert("❌ Código incorrecto, inténtalo de nuevo...");
+        alert("jej");
     }
 }
 
