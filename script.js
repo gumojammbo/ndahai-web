@@ -12,12 +12,14 @@ function showVideo() {
 
     if (input === sejCode) {
         // Segundo easter egg
-        secretVideo.src = "https://www.youtube.com/embed/-BoMd8De640?si=6QcQ1k6HLL_czykL&amp;start=381"; // puedes poner otro video
+        secretVideo.src = "https://www.youtube.com/embed/-BoMd8De640?si=6QcQ1k6HLL_czykL&amp;start=38"; // puedes poner otro video
         easterEgg.style.display = "block";
         secretInput.value = "";
     } else {
         alert("jej");
     }
+
+    
 }
 
 secretBtn.addEventListener("click", showVideo);
