@@ -1,111 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
-    <style>
-        body {
-            background-color: #000033; 
-            color: #00ffcc; 
-            font-family: "Comic Sans MS", "Courier New", cursive;
-            text-align: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ndahai :)</title>
+  <link rel="icon" type="image/gif" href="images/head/favicon.gif">
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(1, 1, 40);
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        overflow: hidden;
+        position: relative;
+    }
+    table {
+      margin: 0 auto; 
+      position: relative;
+      /* z-index: 10; */
+    }
+    .titulotabla{
+        z-index: 10;
+    }
+    td {
+      text-align: center;      
+    }
+    .titulo {
+        color: rgb(0, 238, 255);
+        font-size: 3rem;
+        animation: scaleAnim 0.5s infinite alternate ease-in-out;
         }
 
-        h1 {
-            font-size: 3rem;
-            color: #ffcc00;
-        }
+    @keyframes scaleAnim {
+        from {transform: scale(1);}
+        to {transform: scale(0.8);}
+    }
 
-        @keyframes blink {
-            from { opacity: 1; }
-            to { opacity: 0.6; }
-        }
+    .colcentro{
+        width: 500px;
+    }
 
-        table {
-            margin: 20px auto;
-            border: 4px dashed #00fff2;
-            background-color: #000000;
-            padding: 15px;
-        }
+    marquee{
+        color: magenta;
+    }
 
-        td {
-            padding: 15px;
-        }
+    .estrella{
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        z-index: 1;
+    }
 
-        img {
-            border: 4px ridge #00ffcc;
-            background-color: #111144;
-        }
-
-        a {
-            color: #ff0000;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: #00ffcc;
-            background-color: #330066;
-        }
-    </style>
+    
+    #espacio { position: absolute; top:0; left:0; width:100%; height:100%; z-index:5; }
+  </style>
 </head>
 <body>
-    <h1> NDAHAI.COM ‼️</h1>
 
-    <marquee behavior="scroll" scrollamount="10" style="color:#ff00ff; font-weight:bold;">
-        BUEN DIA HOLA AMIGOS
-    </marquee>
 
-    <table>
-        <tr>
+  <table class="titulotabla">
+    <tr>
+      <td rowspan="2">
+        <img src="images/head/cerveza.gif" alt="GIF izquierda">
+      </td>
+      <td class="colcentro">
+        <h1 class="titulo">NDAHAI.COM</h1>
+      </td>
+      <td rowspan="2">
+        <img src="images/head/martiyo.gif" alt="GIF derecha">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <marquee> HOLA COMO ESTAN BUEN DIA AMIGOS :) </marquee>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
             <td>
                 <input type="text" id="jejeinput" placeholder="jejejej">
                 <button id="jeje">???</button>
             </td>
         </tr>
-        <tr>
-            <td>
-                <img src="images/4DDF7307-101C-4C84-9801-E2E509F9316D.jpeg" height="300px">
-            </td>
-        </tr>
-         <tr>
-            <td>
-                <img src="images/ER5ZQ34WOJLZJCOXP74MXGCGWBYEHE72.gif" height="300px">
-            </td>
-        </tr>
-         <tr>
-            <td>
-                <img src="images/7ZYKCAUUDFTAA2URBFPQDF2ZOWGP3XRJ.gif" height="300px">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="images/4DDF7307-101C-4C84-9801-E2E509F9316D.jpeg" height="300px">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="images/dukerotando.gif" height="300px">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="images/2BTTX2XUTQNRHAZSDY52EFOHWJNBONTV.gif" height="300px">
-            </td>
-        </tr>
-    </table>
+  </table>
 
 
-    <div id="easter-egg" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+<div id="espacio"></div>
+
+<script>
+const espacio = document.getElementById('espacio');
+const cantidad = 11;
+const images = [];
+
+const cantidadEstrellas = 150;
+for (let i = 0; i < cantidadEstrellas; i++) {
+    const estrella = document.createElement('div');
+    estrella.classList.add('estrella');
+    const size = Math.random() * 2 + 1; 
+    estrella.style.width = size + 'px';
+    estrella.style.height = size + 'px';
+    estrella.style.top = Math.random() * window.innerHeight + 'px';
+    estrella.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(estrella);
+}
+
+function randomSpeed(min, max) {
+  let speed = Math.random() * (max - min) + min;
+  return Math.random() < 0.5 ? -speed : speed;
+}
+
+for (let i = 0; i < cantidad; i++) {
+  const img = document.createElement('img');
+  img.src = 'images/image' + (i + 1) + '.gif';
+  img.style.position = 'absolute';
+  img.style.height = Math.random() * (200 - 100) + 100 + 'px'; 
+  img.style.top = Math.random() * (window.innerHeight - 150) + 'px';
+  img.style.left = Math.random() * (window.innerWidth - 150) + 'px';
+
+  img.dx = randomSpeed(0.5, 2);
+  img.dy = randomSpeed(0.5, 2);
+
+  espacio.appendChild(img);
+  images.push(img);
+}
+
+function mover() {
+  images.forEach(img => {
+    let top = parseFloat(img.style.top);
+    let left = parseFloat(img.style.left);
+
+    top += img.dy;
+    left += img.dx;
+
+    if (top < 0 || top > window.innerHeight - img.offsetHeight) img.dy *= -1;
+    if (left < 0 || left > window.innerWidth - img.offsetWidth) img.dx *= -1;
+
+    img.style.top = top + 'px';
+    img.style.left = left + 'px';
+  });
+
+  requestAnimationFrame(mover);
+}
+
+mover();
+</script>
+
+<div id="easter-egg" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
          background:#111144; border:5px ridge #ff00ff; padding:20px;  z-index:9999;">
-        <iframe id="secret-video" width="600" height="350" src="" frameborder="0" allowfullscreen></iframe>
-        <br>
-        <button id="close-egg" style="margin-top:10px; padding:5px 10px; font-weight:bold; background:#ff00ff; color:white; border:none; border-radius:5px; cursor:pointer;">
-            Cerrar
-        </button>
-    </div>
+    <iframe id="secret-video" width="600" height="350" src="" frameborder="0" allowfullscreen></iframe>
+    <br>
+    <button id="close-egg" style="margin-top:10px; padding:5px 10px; font-weight:bold; background:#ff00ff; color:white; border:none; border-radius:5px; cursor:pointer;">
+        Cerrar
+    </button>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
+
+
 </body>
 </html>
